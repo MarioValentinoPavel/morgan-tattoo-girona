@@ -1,0 +1,140 @@
+/* Morgan Tattoo & Piercing · «Val regal»: la caja verde de sus tarjetas regalo se abre y tú diseñas la tuya */
+:root {
+  --green: #0f2a22; --green-2: #16382d; --green-3: #1f4a3c; --bone: #efe8dc; --bone-2: #e2d8c6; --ver: #d4472b; --mute: #a3b5ab; --line: #efe8dc22;
+  --f-d: "Texturina", Georgia, serif; --f-b: "PT Sans", system-ui, sans-serif;
+  --ease: cubic-bezier(.2, .9, .25, 1); --r: 10px;
+  --c-bg: var(--green); --c-card: var(--green-2); --c-ink: var(--bone); --c-mute: var(--mute); --c-line: #efe8dc2e; --c-acc: var(--bone); --c-acc-ink: var(--green);
+}
+/* cursor: máquina de tatuar en toda la web (no cambia nunca) */
+html, body, *, *::before, *::after { cursor: url("../assets/cursor.png") 5 27, auto !important; cursor: -webkit-image-set(url("../assets/cursor.png") 1x, url("../assets/cursor@2x.png") 2x) 5 27, auto !important; cursor: image-set(url("../assets/cursor.png") 1x, url("../assets/cursor@2x.png") 2x) 5 27, auto !important; }
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--green); color: var(--bone); font: 400 18px/1.6 var(--f-b); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body.lock { overflow: hidden; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+::selection { background: var(--ver); color: var(--bone); }
+:focus-visible { outline: 2px solid var(--ver); outline-offset: 3px; }
+.skip { position: absolute; left: 12px; top: -60px; z-index: 100; padding: 10px 16px; background: var(--bone); color: var(--green); }
+.skip:focus { top: 12px; }
+h1, h2, h3 { margin: 0; font-family: var(--f-d); font-weight: 600; letter-spacing: -.01em; font-optical-sizing: auto; }
+h2 { font-size: clamp(36px, 5vw, 70px); line-height: 1.05; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 24px; background: var(--bone); color: var(--green); text-decoration: none; font-weight: 700; font-size: 15px; border: 1px solid var(--bone); border-radius: var(--r); }
+.btn-line { background: transparent; color: var(--bone); border-color: #efe8dc66; }
+.btn-sm { min-height: 42px; padding: 0 18px; font-size: 14px; }
+@media (hover: hover) and (pointer: fine) { .btn { transition: background .3s, color .3s, border-color .3s; } .btn:hover { background: var(--ver); border-color: var(--ver); color: var(--bone); } }
+
+/* ---------- arranque: la caja regalo se abre ---------- */
+.box { position: fixed; inset: 0; z-index: 200; background: var(--green-2); display: grid; place-items: center; overflow: hidden; }
+.box-n { font: 600 clamp(60px, 14vw, 200px)/1 var(--f-d); color: var(--bone); position: relative; z-index: 2; }
+.rib { position: absolute; background: var(--ver); z-index: 1; }
+.rib-v { width: 46px; top: 0; bottom: 0; left: calc(50% - 23px); }
+.rib-h { height: 46px; left: 0; right: 0; top: calc(50% - 23px); }
+
+/* ---------- cabecera ---------- */
+.top { position: fixed; z-index: 50; inset: 0 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px clamp(16px, 4vw, 48px); transition: background .4s, translate .5s var(--ease); }
+.top.solid { background: #0f2a22e8; backdrop-filter: blur(10px); box-shadow: 0 1px 0 var(--line); }
+.top.hide { translate: 0 -100%; }
+.brand { display: grid; text-decoration: none; font: 600 28px/1 var(--f-d); }
+.brand small { font: 400 10px/1.4 var(--f-b); letter-spacing: .3em; text-transform: uppercase; color: var(--mute); }
+.nav { display: flex; gap: 26px; font-size: 15px; }
+.nav a { text-decoration: none; color: var(--mute); }
+.top-r { display: flex; align-items: center; gap: 12px; }
+.langs { display: flex; gap: 2px; }
+.langs button { min-width: 38px; min-height: 36px; border: 1px solid transparent; border-radius: 8px; background: none; color: var(--mute); font: 700 12px/1 var(--f-b); }
+.langs button[aria-pressed="true"] { border-color: var(--bone); color: var(--bone); }
+@media (hover: hover) and (pointer: fine) { .nav a:hover { color: var(--bone); } }
+@media (max-width: 920px) { .nav { display: none; } }
+@media (max-width: 460px) { .top-r .btn-sm { display: none; } }
+
+/* ---------- portada ---------- */
+.hero { min-height: 100svh; display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(28px, 5vw, 80px); align-items: center; padding: 110px clamp(16px, 5vw, 80px) 60px; }
+.since { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 20px; font-size: 14px; letter-spacing: .14em; text-transform: uppercase; color: var(--mute); }
+.since::before { content: ""; width: 28px; height: 2px; background: var(--ver); }
+.hero h1 { font-size: clamp(42px, 6.2vw, 96px); line-height: 1.02; }
+.hero-p { max-width: 46ch; margin: 24px 0 0; color: #efe8dccc; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.hero-rate { margin: 26px 0 0; color: var(--mute); font-size: 15px; }
+.hero-rate b { font: 600 24px/1 var(--f-d); color: var(--bone); }
+.hero-art { position: relative; aspect-ratio: 1; }
+.hero-art figure { position: absolute; margin: 0; overflow: hidden; border-radius: var(--r); box-shadow: 0 30px 60px -30px #000c; }
+.hero-art img { width: 100%; height: 100%; object-fit: cover; }
+.ha-1 { width: 66%; aspect-ratio: 1; left: 0; top: 0; rotate: -3deg; }
+.ha-2 { width: 54%; aspect-ratio: 1; right: 0; bottom: 0; rotate: 4deg; border: 8px solid var(--bone); }
+@media (max-width: 860px) { .hero { grid-template-columns: 1fr; } .hero-art { max-width: 460px; } }
+
+/* ---------- qué hacemos ---------- */
+.que { padding: clamp(80px, 10vw, 140px) clamp(16px, 5vw, 80px); background: var(--bone); color: var(--green); }
+.que h2 { margin-bottom: 30px; }
+.q-list { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--green); }
+.q-list li { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 30px; align-items: baseline; padding: 20px 0; border-bottom: 1px solid #0f2a2233; }
+.q-list b { font: 600 clamp(28px, 4vw, 54px)/1 var(--f-d); }
+.q-list span { color: #0f2a22bb; }
+.steril { margin: 26px 0 0; font-weight: 700; color: var(--ver); }
+@media (max-width: 640px) { .q-list li { grid-template-columns: 1fr; } }
+
+/* ---------- trabajos ---------- */
+.trabajos { padding: clamp(80px, 10vw, 140px) clamp(16px, 5vw, 80px); }
+.t-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px 40px; margin-bottom: 36px; }
+.t-head p { margin: 0; max-width: 44ch; color: #efe8dcbb; }
+.t-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 36px; }
+.t-grid figure { margin: 0; aspect-ratio: 1; overflow: hidden; border-radius: var(--r); }
+.t-grid img { width: 100%; height: 100%; object-fit: cover; }
+@media (hover: hover) and (pointer: fine) { .t-grid img { transition: scale .8s var(--ease); } .t-grid figure:hover img { scale: 1.06; } }
+@media (max-width: 760px) { .t-grid { grid-template-columns: 1fr 1fr; } }
+
+/* ---------- tarjeta regalo ---------- */
+.regalo { display: grid; grid-template-columns: 1fr minmax(300px, 520px); gap: clamp(28px, 5vw, 80px); align-items: center; padding: clamp(80px, 10vw, 140px) clamp(16px, 5vw, 80px); background: var(--green-2); }
+.g-form h2 { margin-bottom: 16px; }
+.g-form > p { max-width: 46ch; color: #efe8dccc; margin: 0 0 24px; }
+.g-form fieldset { border: 0; margin: 0 0 18px; padding: 0; }
+.g-form legend, .g-form label span { display: block; margin-bottom: 8px; font-size: 14px; letter-spacing: .1em; text-transform: uppercase; color: var(--mute); }
+.opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.opts button { min-height: 44px; padding: 0 16px; border: 1px solid #efe8dc44; border-radius: 999px; background: none; color: var(--bone); font: 400 15px/1 var(--f-b); }
+.opts button[aria-checked="true"] { background: var(--bone); color: var(--green); border-color: var(--bone); }
+.g-form label { display: block; margin-bottom: 16px; max-width: 420px; }
+.g-form input { width: 100%; min-height: 50px; padding: 0 14px; border: 1px solid #efe8dc44; border-radius: var(--r); background: var(--green); color: var(--bone); font: 400 17px/1 var(--f-b); }
+.g-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+.card-wrap { perspective: 1200px; }
+.card { aspect-ratio: 1.6; border-radius: 18px; background: #0b1f19; position: relative; transform-style: preserve-3d; transition: transform .25s ease-out; box-shadow: 0 40px 70px -30px #000; overflow: hidden; }
+.card::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at var(--gx, 30%) var(--gy, 20%), #efe8dc26, transparent 45%); pointer-events: none; z-index: 2; }
+.card::after { content: ""; position: absolute; inset: 10px; border: 1px solid #efe8dc40; border-radius: 12px; pointer-events: none; }
+.card-f { position: absolute; inset: 0; padding: clamp(18px, 3vw, 30px); display: grid; grid-template-rows: auto auto 1fr auto auto auto; color: var(--bone); }
+.card-f p { margin: 0; }
+.c-top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.c-top span { font: 600 clamp(26px, 3.4vw, 38px)/1 var(--f-d); }
+.c-top small { font-size: 10px; letter-spacing: .24em; text-transform: uppercase; color: var(--mute); text-align: right; }
+.c-k { margin-top: 10px !important; font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: var(--ver); font-weight: 700; }
+.c-amt { align-self: center; font: 700 clamp(48px, 7vw, 84px)/1 var(--f-d); }
+.c-type { font-size: 15px; color: var(--mute); }
+.c-to { font-size: 16px; }
+.c-to b { font-family: var(--f-d); font-size: 20px; }
+.c-msg { font-style: italic; color: #efe8dccc; min-height: 1.4em; }
+.c-note { position: absolute; right: 22px; bottom: 16px; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: #efe8dc66; }
+.card-h { text-align: center; color: var(--mute); font-size: 13px; margin: 16px 0 0; }
+@media (hover: none) { .card-h { display: none; } }
+@media (max-width: 860px) { .regalo { grid-template-columns: 1fr; } }
+
+/* ---------- reseñas ---------- */
+.resenas { padding: clamp(80px, 10vw, 140px) clamp(16px, 5vw, 80px); }
+.resenas h2 { margin-bottom: 34px; }
+.rs { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 16px; }
+.rs blockquote { margin: 0; padding: 26px; border-radius: var(--r); border: 1px solid var(--line); }
+.rs p { margin: 0; font: 400 19px/1.5 var(--f-d); }
+cite { display: block; margin-top: 12px; font-style: normal; color: var(--ver); font-size: 13px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; }
+@media (max-width: 860px) { .rs { grid-template-columns: 1fr; } }
+
+/* ---------- visita ---------- */
+.visita { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(24px, 4vw, 60px); padding: clamp(70px, 9vw, 120px) clamp(16px, 5vw, 80px); background: var(--bone); color: var(--green); }
+.visita h2 { margin-bottom: 20px; }
+.visita dl { margin: 0; }
+.visita dt { margin-top: 18px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--ver); font-weight: 700; }
+.visita dd { margin: 6px 0 0; }
+.v-map { min-height: 380px; --c-card: #f7f2e9; --c-ink: var(--green); --c-mute: #0f2a22aa; --c-line: #0f2a2233; }
+@media (max-width: 860px) { .visita { grid-template-columns: 1fr; } }
+
+.foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; padding: 26px clamp(16px, 5vw, 80px); color: var(--mute); font-size: 14px; }
+.foot p { margin: 0; }
+.foot-links { display: flex; flex-wrap: wrap; gap: 16px; }
+.foot-links a, .foot-links button { color: inherit; font: inherit; background: none; border: 0; padding: 0; text-decoration: underline; text-underline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .box { display: none; } * { animation: none !important; transition: none !important; } }
