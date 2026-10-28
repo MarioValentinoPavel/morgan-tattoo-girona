@@ -51,16 +51,16 @@ h2 { font-size: clamp(36px, 5vw, 70px); line-height: 1.05; }
 .hero { min-height: 100svh; display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(28px, 5vw, 80px); align-items: center; padding: 110px clamp(16px, 5vw, 80px) 60px; }
 .since { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 20px; font-size: 14px; letter-spacing: .14em; text-transform: uppercase; color: var(--mute); }
 .since::before { content: ""; width: 28px; height: 2px; background: var(--ver); }
-.hero h1 { font-size: clamp(42px, 6.2vw, 96px); line-height: 1.02; }
+.hero h1 { font-size: clamp(46px, 6.8vw, 116px); line-height: 1; color: var(--bone); }
 .hero-p { max-width: 46ch; margin: 24px 0 0; color: #efe8dccc; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
 .hero-rate { margin: 26px 0 0; color: var(--mute); font-size: 15px; }
 .hero-rate b { font: 600 24px/1 var(--f-d); color: var(--bone); }
-.hero-art { position: relative; aspect-ratio: 1; }
+.hero-art { position: relative; aspect-ratio: 1; width: min(100%, 76svh); justify-self: end; }
 .hero-art figure { position: absolute; margin: 0; overflow: hidden; border-radius: var(--r); box-shadow: 0 30px 60px -30px #000c; }
 .hero-art img { width: 100%; height: 100%; object-fit: cover; }
-.ha-1 { width: 66%; aspect-ratio: 1; left: 0; top: 0; rotate: -3deg; }
-.ha-2 { width: 54%; aspect-ratio: 1; right: 0; bottom: 0; rotate: 4deg; border: 8px solid var(--bone); }
+.ha-1 { width: 82%; aspect-ratio: 1; left: 0; top: 0; rotate: -2deg; }
+.ha-2 { width: 40%; aspect-ratio: 1; right: 0; bottom: 0; rotate: 4deg; border: 8px solid var(--bone); }
 @media (max-width: 860px) { .hero { grid-template-columns: 1fr; } .hero-art { max-width: 460px; } }
 
 /* ---------- qué hacemos ---------- */
